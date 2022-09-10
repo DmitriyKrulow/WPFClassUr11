@@ -1,0 +1,180 @@
+﻿<Window x:Class="WPFClassUr11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFClassUr11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" MinWidth="500" MinHeight="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+
+            <ColumnDefinition Width="400*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="СlientList" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="СlientList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding ClientSurname}" Width="100"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding ClientName}" Width="100"/>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding ClientPatronymic}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Grid.Column="1" 
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   Text="Фамилия" 
+                   VerticalAlignment="Top" 
+                   Width="400" 
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextClientSurname" 
+                 Grid.Column="1" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,16,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="400" 
+                 Height="23" 
+                 TextAlignment="Center"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,42,0,0"
+                   TextWrapping="Wrap"
+                   Text="Имя"
+                   VerticalAlignment="Top"
+                   Width="400"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextClientName" 
+                 Grid.Column="1" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,58,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="401" 
+                 Height="23" 
+                 TextAlignment="Center"
+                 IsReadOnly="False"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,81,0,0"
+                   TextWrapping="Wrap"
+                   Text="Отчество"
+                   VerticalAlignment="Top"
+                   Width="400"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextClientPatronymic"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Margin="0,100,0,0"
+                 TextWrapping="Wrap"
+                 Text="TextBox"
+                 VerticalAlignment="Top"
+                 Width="400"
+                 Height="23"
+                 TextAlignment="Center"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,123,0,0"
+                   TextWrapping="Wrap"
+                   Text="Номер телефона"
+                   VerticalAlignment="Top"
+                   Width="400"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextClientPhoneNumber" Grid.Column="1" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="400" Height="23" TextAlignment="Center" KeyDown="TextClientPhoneNumber_KeyDown"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,162,0,0" TextWrapping="Wrap" Text="Серия номер паспорта" VerticalAlignment="Top" Width="400" TextAlignment="Center"/>
+        <TextBox x:Name="TextClientPassportNumber" Grid.Column="1" HorizontalAlignment="Center" Margin="0,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="396" Height="23" TextAlignment="Center" KeyDown="TextClientPassportNumber_KeyDown"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,201,0,0" TextWrapping="Wrap" Text="Дата и время изменения/создания записи" VerticalAlignment="Top" Width="395" TextAlignment="Center"/>
+        <TextBox x:Name="TextThisDay" Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Margin="0,217,0,0"
+                 TextWrapping="Wrap"
+                 Text=""
+                 VerticalAlignment="Top"
+                 Width="395"
+                 Height="23"
+                 TextAlignment="Center" 
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,241,0,0"
+                   TextWrapping="Wrap"
+                   Text="Какие данные изменены"
+                   VerticalAlignment="Top"
+                   Width="395"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextChangesData"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Margin="0,257,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="400"
+                 Height="23"
+                 TextAlignment="Center"
+                 Text=""
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,281,0,0"
+                   TextWrapping="Wrap"
+                   Text="Тип изменений"
+                   VerticalAlignment="Top"
+                   Width="400"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextChangesType"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Margin="0,297,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="400"
+                 Height="23"
+                 TextBlock.TextAlignment="Center"
+                 Text=""
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,320,0,0"
+                   TextWrapping="Wrap"
+                   Text="Кто изменил данные"
+                   VerticalAlignment="Top"
+                   Width="400"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextChangesWho"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Margin="0,336,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="400"
+                 Height="23"
+                 TextBlock.TextAlignment="Center"
+                 Text=""
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Margin="0,361,0,0"
+                   TextWrapping="Wrap"
+                   Text="Идентификатор записи"
+                   VerticalAlignment="Top"
+                   Width="399"
+                   TextAlignment="Center"/>
+        <TextBox x:Name="TextId"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Margin="0,377,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="400"
+                 Height="23"
+                 TextBlock.TextAlignment="Center"
+                 Text=""
+                 IsReadOnly="True"/>
+        <RadioButton x:Name="ManagerRadioButton" GroupName="Users" Grid.Column="1" Content="Менаджер" HorizontalAlignment="Left" Margin="5,404,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ConsultamtRadioButton" GroupName="Users" IsChecked="True" Grid.Column="1" Content="Консультант" HorizontalAlignment="Left" Margin="5,419,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SaveButton" Grid.Column="1" Content="Сохранить" HorizontalAlignment="Center" Margin="0,402,0,0" VerticalAlignment="Top" Width="123" Click="SaveButton_Click"/>
+    </Grid>
+</Window>
