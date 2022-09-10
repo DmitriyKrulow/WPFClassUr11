@@ -1,12 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using CSharpVitamins;
 using System.Windows;
 
 namespace WPFClassUr11
@@ -16,7 +12,7 @@ namespace WPFClassUr11
         static string IdCards;
         static List<string> idCD;
         static string FileCustomerData;
-        static List <CustomerData> CDdata;
+        static List<CustomerData> CDdata;
         static bool AddFlag;
         static CustomerData()
         {
@@ -42,7 +38,7 @@ namespace WPFClassUr11
             }
         }
         private string id;
-        public string Id { get { return this.id; } } 
+        public string Id { get { return this.id; } }
         public string ClientSurname { get; set; }
         public string ClientName { get; set; }
         public string ClientPatronymic { get; set; }
@@ -60,7 +56,7 @@ namespace WPFClassUr11
         {
             do
             {
-                id = $@"{Guid.NewGuid().ToString("N").Substring(0,6)}";
+                id = $@"{Guid.NewGuid().ToString("N").Substring(0, 6)}";
             }
             while (CustomerData.idCD.Contains(id));
             ClientSurname = clientSurname;
@@ -72,7 +68,7 @@ namespace WPFClassUr11
             ChangesData = "";
             ChangesType = "";
             ChangesWho = "";
-    }
+        }
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
@@ -83,7 +79,7 @@ namespace WPFClassUr11
         /// <summary>
         /// Дабавление в список записей
         /// </summary>
-        public void Add() 
+        public void Add()
         {
             if (AddFlag)
             {
@@ -114,12 +110,12 @@ namespace WPFClassUr11
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxResult result;
                     result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
-                }               
+                }
             }
 
         }
 
-        public void Write() 
+        public void Write()
         {
             int idRecord = 0;
             if (this.ClientPhoneNumber != "")
@@ -149,7 +145,7 @@ namespace WPFClassUr11
             }
         }
 
-        public List<CustomerData> DisplayingList() 
+        public List<CustomerData> DisplayingList()
         {
             return CDdata;
         }

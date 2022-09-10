@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace WPFClassUr11
@@ -11,7 +7,7 @@ namespace WPFClassUr11
     internal class Consultant
     {
         public CustomerData workingRecord;
-        public void DispleyClientData(SelectionChangedEventArgs e) 
+        public void DispleyClientData(SelectionChangedEventArgs e)
         {
             foreach (CustomerData name in e.AddedItems)
             {
@@ -30,12 +26,12 @@ namespace WPFClassUr11
                 MainWindow.Instance.TextChangesWho.Text = name.ChangesWho;
                 MainWindow.Instance.TextId.Text = name.Id;
                 workingRecord = name;
-                
+
             }
 
         }
 
-        public CustomerData WriteClientData() 
+        public CustomerData WriteClientData()
         {
             if (workingRecord.ClientPhoneNumber != MainWindow.Instance.TextClientPhoneNumber.Text)
             {
