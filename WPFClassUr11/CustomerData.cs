@@ -17,7 +17,14 @@ namespace WPFClassUr11
         static CustomerData()
         {
             AddFlag = true;
-            FileCustomerData = @"resources\CustomerData.json";
+            string pathDirectory = Directory.GetCurrentDirectory();
+            Debug.WriteLine(pathDirectory);
+            FileCustomerData = pathDirectory + @"\CustomerData.json";
+            if (!File.Exists(FileCustomerData))
+            {
+                using (File.Create(FileCustomerData)) ;
+            }
+
             IdCards = File.ReadAllText(FileCustomerData);
             idCD = new List<string>();
             Debug.WriteLine(">Строка 29 >" + IdCards);

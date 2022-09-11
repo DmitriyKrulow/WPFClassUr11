@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,15 +15,10 @@ namespace WPFClassUr11
         Consultant ConsultantNew = new Consultant();
         Manager MenagerNew = new Manager();
         CustomerData CusDat = new CustomerData("", "", "", "", "");
-        string FileCustomerData = @"resources\CustomerData.json";
+        string pathDirectory = Directory.GetCurrentDirectory();
+        
         public MainWindow()
         {
-            if (File.Exists(FileCustomerData))
-            {
-                Directory.CreateDirectory(@"resources");
-                File.Create(FileCustomerData);
-
-            }
             InitializeComponent();
             СlientListPrint();
             ClientReadDispley();
