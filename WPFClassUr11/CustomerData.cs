@@ -22,7 +22,8 @@ namespace WPFClassUr11
             FileCustomerData = pathDirectory + @"\CustomerData.json";
             if (!File.Exists(FileCustomerData))
             {
-                using (File.Create(FileCustomerData)) ;
+                var fileStream = File.Create(FileCustomerData);
+                fileStream.Close();
             }
 
             IdCards = File.ReadAllText(FileCustomerData);
